@@ -1,0 +1,90 @@
+paeg {
+  height: 100%;
+}
+
+.page, .page__bd {
+  height: 100%;
+}
+
+.page__bd {
+  padding-bottom: 0;
+}
+
+.form_text {
+  width: 25%;
+  height: 100rpx;
+  float: left;
+  text-align: center;
+}
+
+.form_header {
+  width: 100%;
+}
+
+.form_view {
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 1rpx #bbb solid;
+  line-height: 100rpx;
+}
+
+.form_input_out {
+  width: 75%;
+  height: 100rpx;
+  float: left;
+}
+
+.form_input {
+  margin-top: 27rpx;
+}
+
+.sperate {
+  width: 100%;
+  height: 30rpx;
+  background-color: rgb(241, 241, 241);
+}
+
+.detail {
+  width: 90%;
+  height: 600rpx;
+  background-color: rgb(241, 241, 241);
+  margin-left: 5%;
+  border-radius: 50rpx;
+}
+
+.header {
+  margin-left: 5%;
+  width: 90%;
+  height: 150rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rpx;
+}
+
+.internal {
+  width: 60%;
+  height: 60%;
+  background-color: rgb(241, 241, 241);
+  border-radius: 5%;
+  margin: 0 auto;
+}
+
+.searchBtn {
+  width: 20%;
+  line-height: 80rpx;
+  background-color: rgb(252, 118, 106);
+  color: white;
+}
+
+.input-border {
+  width: 100%;
+  padding-top: 20rpx;
+}
+.hoverBtn{
+  position: relative;
+  top: 3rpx;
+  box-shadow:0px 0px 8px rgb(241, 241, 241) inset; 
+}

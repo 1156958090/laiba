@@ -1,0 +1,48 @@
+<view class="page_bd" wx:if="{{logged}}">
+  <view class='noteam' wx:if="{{haveTeam}}">
+    <image src='../../images/expression.png' style='width:50%;' mode='widthFix'></image>
+    <text class='remind_font'>
+哎呀！你还没有加入任何团体，赶紧去加入团体查看活动吧
+      </text>
+    <button bindtap='createOrChooice' style='background-color: rgb(252,118,106);color:white;' hover-class='hoverBtn'>加入/创建团体</button>
+  </view>
+</view>
+<view wx:if="{{logged && !haveTeam && !exist}}">
+  <view class="weui-loadmore">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+</view>
+<view class='activities' wx:if="{{exist && logged && !haveTeam}}">
+  <scroll-view class='scroll'>
+    <block wx:for="{{activities}}" wx:key="{{item.activity.peoples}}">
+      <view class='external' bindtap='goDetail' data-id="{{index}}">
+        <view class='userUrl'>
+          <image src='{{item.creatorUrl}}' style="width:100%; border-radius: 10%;" mode='widthFix'></image>
+        </view>
+        <view class='userDate small_font'>活动日期：{{item.activity.date}}</view>
+        <view class='userClock small_font'>活动时间：{{item.activity.clock}}</view>
+        <view class='userTitle'>活动标题：{{item.activity.title}}</view>
+        <view class='userDes' style='font-size:small;'>活动描述：{{item.activity.introduction}}</view>
+        <view class='photoArea' wx:if="{{item.activity.file_path}}">
+          <block wx:for="{{item.activity.file_path}}" wx:key="{{item.activity.peoples}}">
+            <image src='{{item}}' class='userImages' mode='aspectFill' wx:if="{{index<3}}"></image>
+            <view style='width:1%;height:100%;display:inline-block;'></view>
+          </block>
+        </view>
+        <view class='people small_font'>限人数：{{item.activity.peoples}}</view>
+      </view>
+    </block>
+  </scroll-view>
+  <view class='plus' hover-class='plus-around'>
+    <image src='../../images/plus+.png' mode='aspectFit' style='  width: 100rpx;  height: 100rpx;' bindtap='createActivity' ></image>
+  </view>
+</view>
+<view class="page_bd" wx:if="{{!logged}}">
+  <view class='noteam'>
+    <image src='../../images/expression.png' style='width:50%;' mode='widthFix'></image>
+    <text class='remind_font'>
+登录认证之后才能查看自己团体的活动哦
+      </text>
+  </view>
+</view>

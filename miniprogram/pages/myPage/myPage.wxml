@@ -1,0 +1,49 @@
+<view>
+  <view class='all'>
+    <view class='header'>
+      <image src='../../images/top.png' mode='widthFix' style='width:100%'></image>
+      <view class='userContent'>
+        <text style='font-size:50rpx;color:white;margin-left:7%;' wx:if="{{!userInfo.nickName}}">{{nickName}}</text>
+        <text style='font-size:50rpx;color:white;margin-left:7%;'>{{userInfo.nickName}}</text>
+        <image src='{{avatarUrl}}' class='touxiang'></image>
+      </view>
+    </view>
+    <view class='page_body'>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <image src="../../images/province.png"  style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">所属省份</view>
+          <view class="weui-cell__ft">{{userInfo.province}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <image src="../../images/city.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">所属城市</view>
+          <view class="weui-cell__ft">{{userInfo.city}}</view>
+        </view>
+                <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <image src="../../images/gender.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">性别</view>
+          <view class="weui-cell__ft">{{userInfo.gender == 1?'男':'女'}}</view>
+        </view>
+        <navigator url="../messaged/messaged" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="../../images/message.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+          </view>
+          <view class="weui-cell__bd">我留过言的活动</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">查看回复</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <view class='cover' wx:if="{{click}}"></view>
+  <view wx:if="{{session}}" style='text-align:center;'>
+    <text class='remind_font'>您还没有授权，请您授权登录</text>
+    <button class="weui-btn" style='width:80%;' type="primary" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" bindtap="onGetOpenid" style="background-color: #FC766A" lang='zh_CN'>登录</button>
+  </view>
+</view>

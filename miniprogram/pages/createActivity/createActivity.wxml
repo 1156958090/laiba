@@ -1,0 +1,72 @@
+<form bindsubmit='submitAct'>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">标题</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" name="title" placeholder="请输入活动标题，最多20个字" />
+    </view>
+  </view>
+  <view class='sperate'></view>
+  <view>
+    <text>活动描述</text>
+    <textarea style=' width:100%' name='introduction' placeholder='请描述你的活动'></textarea>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">日期</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="date" value="{{date}}" start="2019-05-01" end="2030-1-1" name="date" bindchange="bindDateChange">
+        <view class="weui-input">{{date}}</view>
+      </picker>
+    </view>
+  </view>  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">时间</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker mode="time" value="{{clock}}" start="00:00" end="23:59" name="clock" bindchange="bindTimeChange">
+        <view class="weui-input">{{clock}}</view>
+      </picker>
+    </view>
+  </view>
+    <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">人数</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" type='number' name="peoples" placeholder="请输入活动人数" />
+    </view>
+  </view>
+</view>
+<view class='sperate'></view>
+    <view class="page__bd">
+        <view class="weui-cells">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+                            <view class="weui-uploader__title">图片上传</view>
+                            <view class="weui-uploader__info">{{files.length}}/6</view>
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <block wx:for="{{files}}" wx:key="*this">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+                            </view>
+                            <view class="weui-uploader__input-box">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <button form-type='submit' style='background-color: rgb(252,118,106); color:white'>发布</button>
+    </form>

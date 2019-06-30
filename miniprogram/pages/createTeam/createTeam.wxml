@@ -1,0 +1,78 @@
+<view class="page__bd" >
+  <view class="weui-tab">
+    <view class="weui-navbar" style='background-color:#FC766A;color:white;'>
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title" style='color:white'>{{item}}</view>
+        </view>
+      </block>
+      <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);background-color:white;"></view>
+    </view>
+    <view class="weui-tab__panel">
+      <view class="weui-tab__content" style='background-color: rgb(241,241,241);' hidden="{{activeIndex != 0}}">
+        <form bindsubmit='bindSearch'>
+          <view class='header'>
+            <view class='internal'>
+              <input type='text' class="input-border" name="search" placeholder='在此处输入你想搜索的团队'></input>
+            </view>
+            <button class='searchBtn' form-type='submit' hover-class='hoverBtn'>搜索</button>
+          </view>
+        </form>
+        <view class='searchContent' wx:if="{{searchTN}}">
+          <view class='detail'>
+            <text>团队名：{{searchTN.teamName}}\n</text>
+            <text>创建时间：{{searchTN.createTime}}\n</text>
+            <text>创建人：{{searchTN.creator}}\n</text>
+            <text>团队简介：{{searchTN.introduction}}\n</text>
+          </view>
+          <button bindtap='join'>申请加入</button>
+        </view>
+      </view>
+      <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+        <view class='sperate'></view>
+        <view class='form_header'>
+          <form bindsubmit='onCreateTeam'>
+            <view class='form_view'>
+              <view class='form_text'>
+                <text style='margin:0 auto'>团队</text>
+              </view>
+              <view class='form_input_out'>
+                <input type='text' class='form_input' name='teamName' placeholder='请输入你的团队名'></input>
+              </view>
+            </view>
+            <view class='form_view'>
+              <view class='form_text'>
+                <text style='margin:0 auto'>联系方式</text>
+              </view>
+              <view class='form_input_out'>
+                <input type='telephone' class='form_input' name='telephone' placeholder='请输入你的手机号'></input>
+              </view>
+            </view>
+            <view class='form_view' style='border-bottom:1rpx solid white'>
+              <view class='form_text'>
+                <text>邮箱</text>
+              </view>
+              <view class='form_input_out'>
+                <input type='mail' class='form_input' name='mail' placeholder='请输入你的邮箱'></input>
+              </view>
+            </view>
+
+            <view class='sperate'></view>
+            <view>
+              <text>团队简介</text>
+              <textarea style='border-bottom: 1rpx #bbb solid; width:100%' name='introduction' placeholder='此处为团队简介，最多一百五十字'></textarea>
+            </view>
+            <view class='sperate' style='height:100rpx;line-height:40rpx;'>
+              <text style='font-size:30rpx;'>1,证明材料为图片形式，大小不得超过2M\n</text>
+              <text style='font-size:30rpx;'>2,学生证明为学生证，公司员工为员工证，其他类似</text>
+            </view>
+            <view class='form_foot'>
+              <button bindtap='chooseImage'>上传证明材料</button>
+              <button form-type='submit'>提交审核</button>
+            </view>
+          </form>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

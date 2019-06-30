@@ -1,0 +1,40 @@
+<view style='background-color: rgb(241,241,241)'>
+  <view class='activities'>
+    <scroll-view class='scroll'>
+      <block wx:for="{{activities}}" wx:key="{{item.activity.peoples}}">
+
+        <view>
+          <view class='external' bindtap='actDetail' data-id='{{index}}'>
+            <view class='userUrl'>
+              <image src='{{item.creatorUrl}}' style="width:100%; border-radius: 10%;" mode='widthFix'></image>
+            </view>
+            <view class='userDate small_font'>活动日期：{{item.activity.date}}</view>
+            <view class='userClock small_font'>距活动开始：{{item.duration}}</view>
+            <view class='userTitle'>活动标题：{{item.activity.title}}</view>
+            <view class='userDes' style='font-size:small;'>活动描述：{{item.activity.introduction}}</view>
+            <view class='reverse small_font'>限人数：{{item.activity.peoples}}</view>
+            <view class='people small_font'>已参加人数：{{item.member.length}}</view>
+            <view class='view_bottom'>
+              <button class="{{item.redDot}}"catchtap='single' data-id="{{index}}" hover-class='hoverBtn'>查看留言</button>
+              <button class='button1' catchtap='pay' hover-class='hoverBtn'>支付集资</button>
+            </view>
+          </view>
+          <view class="{{item.num?'comment-visiable':'comment'}}">
+            <view class='contents small'>
+              <scroll-view class='scroll-view' scroll-y='true'>
+                <block wx:for="{{item.comments}}" wx:key="{{index}}" wx:if="{{item}}">
+                  <view class='content' bindtap='reply' data-who='{{item[2]}}' data-time='{{item[3]}}'>
+                    <text>{{item[2]}}回复{{item[1]}}:{{item[0]}}\n</text>
+                  </view>
+                </block>
+                <text wx:if="{{!item.comments}}">暂时还没有留言哦！</text>
+                
+              </scroll-view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+<input style='display:{{display}}'class='input_none' adjust-position="false" type='text' bindblur="inputBlur" focus='{{focus}}' auto-focus='{{focus}}' placeholder='请输入你要回复的内容' confirm-type='send' bindconfirm='send'></input>

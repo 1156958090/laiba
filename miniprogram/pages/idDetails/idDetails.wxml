@@ -1,0 +1,6 @@
+<view class="page_body">
+<text>请务必上传两张图片：\n</text>
+<text>1,证明材料的封面（学生证封面，员工证封面）\n</text>
+<text>2,证明材料的正面（学生证、员工证等的内容页，带个人信息的页）</text>
+<button bindtap='uploads'>上传证明</button>
+</view>

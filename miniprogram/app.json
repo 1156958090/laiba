@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/myPage/myPage",
+    "pages/index/index",
+    "pages/schedule/schedule",
+    "pages/createTeam/createTeam",
+    "pages/createActivity/createActivity",
+    "pages/idDetails/idDetails",
+    "pages/actDetail/actDetail",
+    "pages/messaged/messaged"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FC766A",
+    "navigationBarTitleText": "来吧",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "backgroundColor": "#FFFFFF",
+    "selectedColor": "#000000",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/schedule/schedule",
+        "text": "日程",
+        "iconPath": "images/schedule.png",
+        "selectedIconPath": "images/schedule.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "活动",
+        "iconPath": "images/action.png",
+        "selectedIconPath": "images/action.png"
+      },
+      {
+        "pagePath": "pages/myPage/myPage",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
